@@ -1,0 +1,47 @@
+body{
+    background-image:url("back.jpg");
+}
+#tartalom{
+    margin:0px auto;
+    /* Középre igazítás további lehetséges módjai:
+    margin:auto;
+    margin:0px auto 0px;
+    margin:0px auto 0px auto;
+    */
+    width:1000px;
+}
+#header{
+    background-image:url("panorama.jpg");
+    min-width: 650px;
+    max-width: 1000px;
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size:cover;
+    position: relative;
+    height:170px;
+    padding:20px;
+}
+img{
+    position:absolute;
+    top:20px;
+    right:50px;
+    height:150px;
+}
+.leiras{
+    width:450px;
+    background-color:#5B9CEA;
+    padding:20px;
+}
+table{
+    width:100%;
+    background-color:#B0D1F1;
+    border-collapse: collapse;
+}
+table, th, td{
+    border:1px solid black;
+    padding:5px;
+}
+p{
+    font-weight:bold;
+    text-indent:10px;
+}

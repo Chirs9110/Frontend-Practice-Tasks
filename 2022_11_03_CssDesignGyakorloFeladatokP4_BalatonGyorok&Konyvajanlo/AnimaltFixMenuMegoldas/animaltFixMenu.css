@@ -1,0 +1,68 @@
+*{
+    margin:0px;
+    padding:0px;
+}
+@keyframes beuszas {
+    from{
+        left:-200px;
+    }
+    to{
+        left:0px;
+    }
+}
+
+@keyframes visszauszas {
+    from{
+        left:0px;
+    }
+    to{
+        left:-200px;
+    }
+}
+body{
+    background-image: url("hatter.jpg");
+    background-size: cover;    
+}
+.gomb{    
+    width:300px;
+    height:100px;
+    border-top-right-radius:10px;
+    border-bottom-right-radius:10px;
+    box-shadow: 2px 2px 5px black;
+    background-color:rgba(0,0,0,0.6);
+    position:fixed; 
+    border:1px solid black;
+    left:-200px;
+    /*Extra animáció*/
+    animation-name:visszauszas;
+    animation-duration:2s;
+    animation-fill-mode:backwards;
+}
+.szoveg{
+    font-weight:bold;
+    color:#fff;
+    font-size:30px;
+    position:absolute;
+    left:30px;
+    top:35px;
+}
+img{
+    position:absolute;
+    right:10px;
+    top:10px;
+    height:80px;
+}
+#html{
+    top:200px;
+}
+#css{
+    top:350px;
+}
+#javascript{
+    top:500px;
+}
+.gomb:hover{
+    animation-name:beuszas;
+    animation-duration:2s;
+    animation-fill-mode:forwards;
+}

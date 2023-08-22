@@ -1,0 +1,36 @@
+@keyframes atszinezo {
+    from{
+        /*Ezt üresen hagyom*/
+    }
+    to{
+        background-color: #EE5A24;;
+        border-color:black;
+    }
+}
+body{
+    background-image:linear-gradient(to right, orange, red);
+}
+#tartalom{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+a{
+    background-color: #ff9f43;
+    color:white;
+    font-size:18px;
+    border:3px solid gray;
+    font-weight:bold;
+    border-radius:10px;
+    text-decoration: none;
+    text-align: center;
+    /*Margin, Padding, Width és Height - EGYÉNI*/
+    width:250px;
+    padding:10px;
+    margin:10px;
+}
+a:hover{
+    animation-name:atszinezo;
+    animation-duration:2s;
+    animation-fill-mode: both;
+}

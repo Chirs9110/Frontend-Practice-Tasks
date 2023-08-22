@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="telekocsi.css">
+</head>
+
+<body>
+    <div class="tartalom">
+
+        <h1>Telekocsi</h1>
+
+        <div class="menu">
+
+            <ul class="regisztracio">
+                <li><a href="telekocsi.html">Bemutatkozás</a></li>
+                <li>Sofőröknek</li>
+                <li>Utasoknak</li>
+                <li>Bejelentkezés</li>
+                <li><a href="regisztracio.html">Regisztráció</a></li>
+
+
+            </ul>
+            <h2>Regisztráció</h2>
+            <form action="futtato.php" method="post" onsubmit="checkPassword()">
+                <label for="név">Név:</label>
+                <input type="text" id="név" name="név" required>
+
+                <label for="email">E-mail cím:</label>
+                <input type="email" id="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
+
+                <label for="password1">Jelszó:</label>
+                <input type="password" id="password1" name="password1">
+
+                <label for="password2">Jelszó ismét:</label>
+                <input type="password" id="password2" name="password2">
+
+                <input type="submit" value="Mentés" id="mentes">
+            </form>
+        </div>
+    </div>
+    <script>
+
+
+        function checkPassword() {
+
+            let password1 = document.querySelector("#password1").value;
+            let password2 = document.querySelector("#password2").value;
+
+
+            if (password1 == '')
+                alert("Írd be a jelszót");
+
+            else if (password2 == '')
+                alert("Írd be újra a jelszót");
+
+
+            else if (password1 != password2) {
+                alert("A jelszó nem stimmel, próbáld újra")
+                return false;
+            }
+
+
+            else {
+                alert("Sikeres regisztráció!🥳🎇")
+                return true;
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>

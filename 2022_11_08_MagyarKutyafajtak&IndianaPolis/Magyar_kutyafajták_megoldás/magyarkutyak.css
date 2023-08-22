@@ -1,0 +1,51 @@
+.hasab {
+    width: 50%;
+    float: left;
+    padding:10px;
+    box-sizing:border-box;
+}
+
+
+footer {
+    border-top:2px solid #a52a2a;
+}
+
+body {
+    width: 960px;
+    margin: 0px auto;
+    background-color: #d2691e;
+}
+
+h1 {
+    border-bottom: 2px solid #a52a2a;
+}
+
+li {
+    display: inline-block;
+    min-width: 50px;
+    border-right: 2px solid #a52a2a;
+    padding: 6px;
+    color: white;
+    list-style-type: none;
+    /*Nincs a feladatban*/
+    text-align:center;
+}
+li:last-child{
+    border:none;
+}
+h2{
+    width:96%;
+    background-color: #cd853f;
+    font-style:italic;
+    /*Nincs a feladatban*/
+    padding:5px;
+}
+p{
+    text-align: justify;
+}
+img{
+    width:100px;
+    border:2px solid #a52a2a;
+    float:left;
+    margin:10px;
+}

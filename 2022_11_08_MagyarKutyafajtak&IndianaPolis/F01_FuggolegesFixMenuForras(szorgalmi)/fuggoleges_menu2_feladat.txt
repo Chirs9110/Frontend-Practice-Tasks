@@ -1,0 +1,21 @@
+A menük gombjai az alábbi linkekre mutasson, melyek, ÚJ ablakban! nyíljanak meg:
+
+HTML -> https://www.w3schools.com/html/default.asp
+CSS - > https://www.w3schools.com/css/default.asp
+Bootstrap -> https://www.w3schools.com/bootstrap/bootstrap_ver.asp
+JavaScript -> https://www.w3schools.com/js/default.asp
+Angular -> https://www.w3schools.com/angular/default.asp
+SQL -> https://www.w3schools.com/sql/default.asp
+
+A menü és a main rész:
+háttérszíne: rgb(25, 25, 112,0.8);
+szövegszíne: #ccc;
+
+A menü szélessége 200px, a main részé 600px;
+
+A main rész elkészítéséhez generáljon ki szöveget a Lorem ipsum generátor segítségével:
+https://www.lipsum.com/
+
+Próbálja meg formázni a bekezdéseket a minta alapján.
+
+HOVER effektezett gomb háttérszíne: rgba(200,200,200,0.6);

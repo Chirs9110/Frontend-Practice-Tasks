@@ -1,0 +1,44 @@
+Készítse el az alábbi Űrlap felületet, a mellékelt minták alapján, mely egy "alap" admin felület elemeit tartalmazza.
+
+A fő tartalom div:
+háttérszíne:DarkSlateGray;
+szövegszín: #ddd;
+szélessége: 80%
+
+Alap információ a formoknál:
+Az input mezők szöveg típusúak (Fájl neve és menüpont neve), kitöltése kötelező!
+
+A legördülő menük tartalma a következők
+Típusa
+	1) -
+	2) fomenu
+	3) almenu
+
+Helye
+	1) - 
+	2) Főoldal
+	3) Önéletrajz
+	4) Referenciák
+	5) Elérhetőségek
+
+Engedély
+	1) - 
+	2) igen
+	3) nem
+
+Minden esetben a "-" opció van kiválasztva.
+ 
+A form elemek színe minden esetben, áttetsző: rgba(0,0,0,0.6);
+betűszíne:color: #ddd;
+
+fókuszált elem betűtípusa félkövér, szegélye kék
+nem érvényes érték esetén az elemek szegélye piros
+
+A táblázatnál az első sor és első oszlop TH típusú
+A táblázat 80% széles és középre van igazítva
+
+Táblázat adatok háttérszíne áttetsző:rgba(0,0,0,0.2);
+Fejléc elemek színe, áttetsző: background-color:rgba(0,0,0,0.6);
+Páros sorok háttérszíne: background-color:rgba(0,0,0,0.4);
+
+Aktuálisan kijelölt táblázat sora: background-color:rgba(0,0,0,1); betűszíne fehér;

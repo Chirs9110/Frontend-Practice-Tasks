@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FifaFeladat HTML felület</title>
+</head>
+<style>
+    * {
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .tablaOsztaly,
+    tr {
+        background-image: linear-gradient(175deg, rgb(255, 217, 217), rgb(37, 212, 37), yellow);
+        border: 1px solid black;
+        text-align: center;
+        padding: 1px;
+    }
+
+    .tablaOsztaly tr:hover {
+        background-image: linear-gradient(red, rgb(28, 4, 4));
+        color: white;
+    }
+
+    .tablaOsztaly,
+    th,
+    td {
+        font-size: 22px;
+    }
+
+
+    li {
+        text-align: left;
+    }
+
+    .tablaOsztaly2 {
+        margin: 0 auto;
+        width: 80%;
+    }
+
+    caption {
+        font-size: 23px;
+        font-weight: bolder;
+    }
+
+    .tablaOsztaly2,
+    tr {
+        background-image: linear-gradient(175deg, rgb(255, 217, 217), rgb(37, 212, 37), yellow);
+        border: 1px solid black;
+        text-align: center;
+        padding: 1px;
+    }
+
+    .tablaOsztaly2,
+    th,
+    td {
+        font-size: 22px;
+    }
+
+    .tablaOsztaly2 tr:hover {
+        background-image: linear-gradient(rgb(110, 98, 201), rgb(78, 45, 45));
+        color: white;
+    }
+
+    .zoldKiemeles {
+        color: rgb(0, 127, 0);
+    }
+
+    h1 {
+        text-align: center;
+        font-size: 25px;
+    }
+
+    body {
+        background-image: linear-gradient(175deg, rgb(134, 134, 226), white, rgb(114, 114, 245));
+    }
+
+    .tablaOsztaly {
+        margin: 0 auto;
+        min-width: 650px;
+        width: fit-content;
+        /* Táblázat méretének automatikus illesztése a tartalomhoz */
+
+    }
+
+    .cssMegjelenites {
+        color: rgb(146, 1, 146);
+    }
+</style>
+
+<body>
+
+    <h1>FifaObjektum adatok tábálázatban történő meghívása StepByStep</h1>
+    <ol>
+        <li>Először létrehozunk egy string típusú tömböt csapatAdat néven, amelyben objektumokat tárolunk. Ezek az
+            objektumok a csapatok adatait tartalmazzák.
+            <p style="text-align: center;">var csapatAdat: <b>string[]</b> = [ // ez egy string típusú tömb, és ezt meg
+                is kell adni TypeScriptben<br>
+                "Anglia;4;0;1662",<br>
+                "Argentína;10;0;1614",<br>
+                "Belgium;1;0;1752",<br>
+                "Brazília;3;-1;1719",<br>
+                "Chile;17;-3;1576",<br>
+                "Dánia;14;-1;1584",<br>
+                "Franciaország;2;1;1725",<br>
+                "Hollandia;13;3;1586",<br>
+                "Horvátország;8;-1;1625",<br>
+                "Kolumbia;9;-1;1622",<br>
+                "Mexikó;12;0;1603",<br>
+                "Németország;16;-1;1580",<br>
+                "Olaszország;15;1;1583",<br>
+                "Peru;19;0;1551",<br>
+                "Portugália;5;1;1643",<br>
+                "Spanyolország;7;2;1631",<br>
+                "Svájc;11;0;1604",<br>
+                "Svédország;18;0;1560",<br>
+                "Szenegál;20;0;1546",<br>
+                "Uruguay;6;-1;1639"<br>
+                ];
+            </p>
+        </li>
+        <li>Ezután definiálunk egy <b>interfészt</b> fifaElem néven, amely meghatározza az objektumok struktúráját. Az
+            interfészben négy tulajdonság szerepel: csapat, helyezes, valtozas és pontszam. Ezek a tulajdonságok
+            megadják a csapat nevét, helyezését, változását és pontszámát.
+            <p style="text-align: center;"><b>interface</b> fifaElem {<br>
+                csapat: string;<br>
+                helyezes: number;<br>
+                valtozas: number;<br>
+                pontszam: number;<br>
+                }</p>
+        </li>
+        <li>
+            <ol type="I">A ObjektumFeltolto nevű függvényben megvalósítjuk az objektumok létrehozását a feltöltendő
+                elemek alapján. A függvény paramétere egy string tömb (feltoltendoElem), amely a csapatok adatait
+                tartalmazza.
+                <p style="text-align: center;">function ObjektumFeltolto(feltoltendoElem: string[]): fifaElem[] {
+                    var beolvasottAdatok: <b>fifaElem[] = [];</b><br>
+                    for (let i: number = 0; i < feltoltendoElem.length; i++) {<br>
+                        let darabolandoSor: string[] = feltoltendoElem[i].split(";");<br>
+                        let objektum: fifaElem = {<br>
+                        csapat: darabolandoSor[0],<br>
+                        helyezes: Number(darabolandoSor[1]),<br>
+                        valtozas: Number(darabolandoSor[2]),<br>
+                        pontszam: Number(darabolandoSor[3]),<br>
+                        }
+                        beolvasottAdatok.push(objektum);<br>
+                        }
+                        return beolvasottAdatok;<br>
+                        }
+
+                        var fifaAdatok = ObjektumFeltolto(csapatAdat);</p>
+        </li>
+        <li>Létrehozunk egy üres tömböt, beolvasottAdatok néven, amely a létrehozott objektumokat fogja tárolni.
+        </li>
+        <li>Végigmegyünk a feltoltendoElem tömb elemein egy for ciklus segítségével. Minden elemet felosztunk
+            pontosvessző (;) mentén, és létrehozunk egy új objektumot a darabolandoSorban található adatokkal.
+        </li>
+        <li>Az objektum tulajdonságait a darabolandoSorban található értékekkel töltjük fel. A csapat tulajdonságot a
+            darabolandoSor első elemével, a helyezes tulajdonságot a második elemével, a valtozas tulajdonságot a
+            harmadik elemével, míg a pontszam tulajdonságot a negyedik elemével állítjuk be. A Number() függvény
+            segítségével a szöveges értékeket számmá konvertáljuk.
+        </li>
+        <li>Az elkészült objektumot hozzáadjuk a beolvasottAdatok tömbhöz a push() metódussal.
+        </li>
+        <li>Végül visszaadjuk a beolvasottAdatok tömböt, amely az objektumokat tartalmazza.
+        </li>
+    </ol>
+    <!--end of SubOrdered list -->
+
+    <li>
+        <ul>Az AdatKiiro nevű függvényben megjelenítjük az objektumok adatait. A függvény paramétere egy fifaElem tömb
+            (adatok), amely az objektumokat tartalmazza.
+            <p style="text-align: center;">
+                function AdatKiiro(adatok: <b>fifaElem[]): void</b> {<br>
+                <span class="zoldKiemeles"> var tabla = document.createElement('table');</span><br>
+
+                // Táblázat fejléce<br>
+
+                <span class="cssMegjelenites">
+                    var tablaOsztaly = 'tablaOsztaly'; //táblaOsztaly létrehozása <br>
+                    tabla.classList.add(tablaOsztaly); //hogy lehessen css-ben különböző formázásokat végrehajtani
+                </span><br>
+                // Táblázat css tulajdonságok módosítása<br><br>
+                var tablaFejlec = document.createElement('tr');//<br>
+                var csapatFejlec = document.createElement('th');<br>
+                csapatFejlec.textContent = 'Csapat';<br>
+                var helyezesFejlec = document.createElement('th');<br>
+                helyezesFejlec.textContent = 'Helyezés';<br>
+                var valtozasFejlec = document.createElement('th');<br>
+                valtozasFejlec.textContent = 'Változás';<br>
+                var pontszamFejlec = document.createElement('th');<br>
+                pontszamFejlec.textContent = 'Pontszám';<br>
+                tablaFejlec.appendChild(csapatFejlec);<br>
+                tablaFejlec.appendChild(helyezesFejlec);<br>
+                tablaFejlec.appendChild(valtozasFejlec);<br>
+                tablaFejlec.appendChild(pontszamFejlec);<br>
+                tabla.appendChild(tablaFejlec);<br>
+
+                // Táblázat sorai<br>
+                for (let i: number = 0; i < adatok.length; i++) {<br>
+                    var sor = document.createElement('tr');<br>
+                    var csapatCella = document.createElement('td');<br>
+                    csapatCella.textContent = adatok[i].csapat;<br>
+                    var helyezesCella = document.createElement('td');<br>
+                    helyezesCella.textContent = adatok[i].helyezes.toString();<br>
+                    var valtozasCella = document.createElement('td');<br>
+                    valtozasCella.textContent = adatok[i].valtozas.toString();<br>
+                    var pontszamCella = document.createElement('td');<br>
+                    pontszamCella.textContent = adatok[i].pontszam.toString();<br>
+                    sor.appendChild(csapatCella);<br>
+                    sor.appendChild(helyezesCella);<br>
+                    sor.appendChild(valtozasCella);<br>
+                    sor.appendChild(pontszamCella);<br>
+                    tabla.appendChild(sor);<br>
+                    }<br>
+
+                    document.body.appendChild(tabla);<br>
+                    }<br>
+
+                    AdatKiiro(fifaAdatok);
+            </p>
+    </li>
+    <li class="zoldKiemeles"> Először létrehozunk egy tabla nevű table elemet.
+    </li>
+    <li class="cssMegjelenites"> Dom művelet érdekében létrehozzuk a tablaOsztaly nevű változót, és ezt az osztályt
+        hozzáadjuk a táblázathoz
+    </li>
+    <li>Létrehozunk egy táblázat fejlécet (tablaFejlec) és hozzáadjuk a táblázathoz. A fejléc tartalmazza a "Csapat",
+        "Helyezés", "Változás" és "Pontszám" címeket.
+    </li>
+    <li>A for ciklus segítségével végigmegyünk az adatok tömbön, és minden objektumhoz létrehozunk egy új sort (sor) a
+        táblázatban.
+    </li>
+    <li>Az objektum tulajdonságait tartalmazó cellákat (csapatCella, helyezesCella, valtozasCella, pontszamCella)
+        létrehozzuk, és beállítjuk a megfelelő értékeket az objektum tulajdonságainak megfelelően.
+    </li>
+    <li>A cellákat hozzáadjuk a sorhoz.
+    </li>
+    <li>A sort (sor) hozzáadjuk a táblázathoz (tabla).
+    </li>
+    <li>Végül a táblázatot (tabla) hozzáadjuk a dokumentum testéhez (document.body).
+    </li>
+    <li>Az AdatKiiro függvény meghívásával megjelenítjük az objektumok adatait a táblázatban.
+    </li>
+    </ul>
+    </ol>
+
+    <script src="fifa.js"></script>
+</body>
+
+</html>

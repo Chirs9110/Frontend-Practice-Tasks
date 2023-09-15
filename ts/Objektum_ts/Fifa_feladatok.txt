@@ -1,0 +1,29 @@
+1) Adja meg aktuálisan hány csapat szerepel a ranglistán 
+
+2) Írja ki mennyi a résztvevő csapatok átlagpontszáma
+
+3) Listázza ki azokat a csapatokat, akik az átlagnál több pontot értek el!
+
+4) Írja ki a legtöbbet javító csapat adatait: Helyezés, CsapatNeve, Pontszáma
+
+pl.:
+	Helyezés: 13
+	Csapat: Hollandia
+	Pontszáma: 1586
+
+5) Határozza meg a adatok között megtalálható-e Magyarország csapata!
+
+pl.: 
+	"A csapatok között nincs Magyarország" 
+	illetve
+	"A csapatok között szerepel Magyarország"
+
+6) Készítsen statisztikát a helyezések változása (Valtozas) alapján csoportosítva a
+csapatok számáról a minta szerint! Csak azok a helyezésváltozások jelenjenek meg a
+képenyőn, amelyek esetében a csapatok száma több mint egy volt! A megjelenő
+csoportok sorrendje tetszőleges.
+
+	pl.: 
+	0 helyet változott: 8 csapat
+	-1 helyet változott: 6 csapat
+	1 helyet változott: 3 csapat

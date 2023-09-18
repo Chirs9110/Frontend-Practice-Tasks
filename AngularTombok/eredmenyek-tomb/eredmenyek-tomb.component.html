@@ -1,0 +1,80 @@
+<div class="container ">
+    <h2>Helsinki Olimpia Magyar eredmények listázott kiíratással</h2>
+
+
+    <ul *ngFor="let result of eredmenyek">
+        <li>{{result}}</li>
+
+    </ul>
+
+
+
+<div class="text-center">
+    <hr>
+    <div>        <h2> objektumfeltöltő kódja</h2>
+<p>Az ObjektumFeltolto függvény szerepe az, hogy átalakítsa a szöveges eredményeket strukturált objektumokká, amelyek könnyebben kezelhetőek és felhasználhatóak. A szöveges eredményeket általában nehezebb feldolgozni és kinyerni belőlük az információkat, mivel csak sima szövegként vannak tárolva.</p>
+
+        <p>ObjektumFeltolto(feltoltendoElem: string[]): versenyEredmeny[] &#123;</p>
+<b>
+                <p>&nbsp;&nbsp;// Létrehozunk egy üres tömböt, amelyben tároljuk az eredményeket objektum formájában</p>
+    
+</b>            <p>&nbsp;&nbsp;var beolvasottAdatok: versenyEredmeny[] = [];</p>
+            
+<b>
+                <p>&nbsp;&nbsp;// Végigmegyünk a feltöltendő elemeken (szöveges eredményeken)</p>
+    
+</b>            <p>&nbsp;&nbsp;for (let i: number = 0; i &#60; feltoltendoElem.length; i++) &#123;</p>
+<b>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;// Szétválasztjuk a szöveget szóközök mentén</p>
+    
+</b>            <p>&nbsp;&nbsp;&nbsp;&nbsp;let elemDarabok: string[] = feltoltendoElem[i].split(' ')</p>;
+            
+<b>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;// Létrehozunk egy új objektumot a szükséges tulajdonságokkal</p>
+    
+</b>            <p>&nbsp;&nbsp;&nbsp;&nbsp;let Objektum: versenyEredmeny = &#123;</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;helyezes: Number(elemDarabok[0]), // A szövegből kinyert helyezés</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;meret: Number(elemDarabok[1]), // A szövegből kinyert méret</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sportag: elemDarabok[2], // A szövegből kinyert sportág</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;versenyszam: elemDarabok[3], // A szövegből kinyert versenyszám</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&#125;</p>
+            
+<b>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;// Hozzáadjuk az objektumot az eredmények tömbhöz</p>
+    
+</b>            <p>&nbsp;&nbsp;&nbsp;&nbsp;beolvasottAdatok.push(Objektum);</p>
+            <p>&nbsp;&nbsp;&#125;</p>
+            
+<b>
+                <p>&nbsp;&nbsp;// Visszaadjuk az eredmények tömböt, amely már objektumokat tartalmaz</p>
+    
+</b>            <p>&nbsp;&nbsp;return beolvasottAdatok;</p>
+            <p>&#125;</p>
+            
+
+    </div>
+    
+        <h2>Helsinki Olimpia Magyar eredmények objektumfeltöltő kiíratással</h2>
+        <table class="table table-bordered table-light table-hover table-sm table-stripped table-success">
+            <thead>
+                <tr>
+                    <th>Elért helyezés</th>
+                    <th>Csapattagok száma</th>
+                    <th>Sportág megnevezése</th>
+                    <th>Versenyszám</th>
+    
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let adat of megjelenitettAdatok">
+                    <td>{{adat.helyezes}}</td>
+                    <td>{{adat.meret}}</td>
+                    <td>{{adat.sportag}}</td>
+                    <td>{{adat.versenyszam}}</td>
+                </tr>
+            </tbody>
+    
+        </table>
+    
+</div>
+</div>

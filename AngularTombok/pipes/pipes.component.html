@@ -1,0 +1,49 @@
+<div class="container class=text-center">
+    <h2>Pipe funkció</h2>
+    <p>Pipe karakter: | opt + í</p>
+    <h3>Szövegkezelés</h3>
+    <p>Formátum: {{megjelenites}}</p>
+    <h4>Kiindulási szövegünk: {{mintaSzoveg}}</h4>
+    <h5>lowercase - kisbetűssé alakítás: {{mintaSzoveg|lowercase}}</h5>
+    <h5>uppercase - nagybetűssé alakítás: {{mintaSzoveg | uppercase}}</h5>
+    <h5>titlecase - nagy Kezdőbetűssé alakítás: {{mintaSzoveg|titlecase}}</h5>
+    <br><br><br><br>
+    <h3>Számformázás</h3>
+    <h4>Kiindulási számunk: {{mintaSzam}}</h4>
+    <h5>Egész szám formázása [number: '1.0-0']: {{mintaSzam|number:'1.0-0'}}</h5>
+    <h5>Egész szám formázása, vezetőnullákkal [number: '3.0-0']: {{mintaSzam|number:'3.0-0'}}</h5>
+    <h5>Tizedesjegy beállítása [number: '1.0-2']: {{mintaSzam|number:'1.0-2'}}</h5>
+
+    <h4>Százalékos érték, egész részre kerekítve: [percent: '1.0-0']: {{mintaSzam|number:'1.0-0'}}</h4>
+    <h4>Százalékos érték, tizedes elemekkel: [percent: '1.0-4']: {{mintaSzam|number:'1.0-4'}}</h4>
+
+
+    <br><br><br><br>
+    <h3>Pénznem kiíratás {{zsozsomegjelenites}}</h3>
+    <h4>Alapállapot: {{zsozso}}</h4>
+    <h4><b>Euro szimbólum:</b> {{zsozso | currency:'EUR'}}</h4>
+    <h4><b>Dollár szimbólum:</b> {{zsozso | currency:'USD'}}</h4>
+    <h4><b>Font szimbólum:</b> {{zsozso | currency:'GBP'}}</h4>
+    <h4><b>Indiai rúpia szimbólum:</b> {{zsozso | currency:'INR'}}</h4>
+
+
+    <br><br><br><br>
+    <h3>Dátum formázás</h3>
+    <h3>Formátum: {{datumMinta}}</h3>
+    <h4>{{mintaDatum}}</h4>
+    <h4>Rövid verzió <b>[ | date:'short']</b>: {{mintaDatum | date:'short'}}</h4>
+    <h4>Hosszú verzió <b>[ | date:'long']</b>: {{mintaDatum | date:'long'}}</h4>
+    <h4>Teljes verzió <b>[ | date:'full']</b>: {{mintaDatum | date:'full'}}</h4>
+    <h4>Csak rövid dátum formátum <b>[ | date:'shortDate']</b>: {{mintaDatum | date:'shortDate'}}</h4>
+    <h4>Csak hosszú dátum formátum <b>[ | date:'fullDate']</b>: {{mintaDatum | date:'fullDate'}}</h4>
+    <h4>Csak rövid idő formátum <b> [ | date:'shortTime']</b>: {{mintaDatum | date:'shortTime'}}</h4>
+    <h4>Csak hosszú idő formátum <b>[ | date:'fuulTime']</b>: {{mintaDatum | date:'fullTime'}}</h4>
+
+    <h4>Csak év megjelenítés<b>[ | date:'YYYY']</b>: {{mintaDatum | date:'YYYY'}}</h4>
+    <h4>Csak hónap megjelenítés<b>[ | date:'MM'</b>]: {{mintaDatum | date:'MM'}}</h4>
+    <h4>Csak nap megjelenítés <b>[ | date:'dd']</b>: {{mintaDatum | date:'dd'}}</h4>
+
+    <h4>Év hónap nap megjelenítés <b>[ | date:'YYYY-MM-dd']</b>: {{mintaDatum | date:'YYYY-MM-dd'}}</h4>
+
+
+</div>

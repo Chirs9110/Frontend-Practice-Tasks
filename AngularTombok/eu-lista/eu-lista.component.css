@@ -1,0 +1,10 @@
+thead{
+    font-size: 23px;
+}
+thead, tr:hover{
+    color: purple;
+}
+
+li {
+    list-style-type: none;
+}

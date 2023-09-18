@@ -1,0 +1,92 @@
+<div class="container">
+    <table class="table table-bordered">
+        <thead class="table-dark text-center">
+            <tr>
+                <th>Lépések</th>
+                <th>Mi történik?</th>
+                <th>Magyarázat</th>
+            </tr>
+        </thead>
+        <tbody class="text-center table-stripped">
+            <tr class="table-success">
+                <td>0. Lépés</td>
+                <td>Telepítetted az Angular CLI-t</td>
+                <td><b>Command Line Interface</b> - segítségével könnyedén létrehozhatunk új Angular projekteket,
+                    generálhatunk komponenseket, szolgáltatásokat, modulokat, konfigurálhatjuk a projekt struktúráját,
+                    futtathatjuk és tesztelhetjük az alkalmazást, valamint optimalizálhatjuk és buildelhetjük a kész
+                    projektet a termelési környezetbe történő telepítéshez.</td>
+            </tr>
+            <tr class="table-info">
+                <td>1. Lépés</td>
+                <td><code>ng new example</code> Projekt létrehozás</td>
+                <td>
+                    Új projekt látrehozás, ezen nincs mit magyarázni, mindig ide kell hivatkozni telepítéseknél</td>
+
+            <tr class="table-primary">
+                <td>2. Lépés</td>
+                <td><code>ng g c exam</code> Komponens létrehozás</td>
+                <td>
+                    A komponens az Angular keretrendszer alapvető építőeleme, amely a felhasználói felület részegységeit
+                    képviseli. Hasonlítható más programozási nyelvekben használt moduláris elemekhez, mint például egy
+                    önálló részlet a felhasználói felületen, amely tartalmazza a megjelenítést és az interakciót a
+                    felhasználóval.</td>
+
+            </tr>
+            <tr class="table-warning">
+                <td>3. Lépés</td>
+                <td><b>APP könyvtárban
+                        modosítások</b><br><code>const routes:&#123; path: "Példaoldalam", component: exampleComponent &#125;'</code>
+                    <hr><code>
+            const routes: Routes&#123;path:'",
+            redirectTo: "example", pathMatch: "full"&#125;
+          </code>
+                </td>
+                <td>
+                    Az AppRoutingModule felelős az alkalmazás útvonalainak definiálásáért és a hozzájuk tartozó
+                    komponensek meghatározásáért. Amikor az Angular az URL alapján meghatározza, hogy melyik útvonalhoz
+                    tartozó komponenst kell betöltenie, az AppRoutingModule által definiált útvonalak alapján navigál,
+                    egyfajta aldomainnek nevezném.
+                    <hr>
+                    A &#123;path:'",
+                    redirectTo: "example", pathMatch: "full"&#125; <br>annyit tesz hogy az alapértelmezett oldalként
+                    tekint a megadott modulra
+                </td>
+            </tr>
+            <tr class="table-danger">
+                <td>4. Lépés</td>
+                <td><code>cd example</code><b> NE felejts el vissza navigálni</b> </td>
+                <td>mert alapkönyvtáron kívül telepíti a kért elemeket</td>
+            </tr>
+            <tr class="table-danger">
+                <td>5. Lépés</td>
+                <td><code>npm install bootstrap</code><br> <code>npm install jquery</code> </td>
+                <td>kívánt elemek telepítése</td>
+            </tr>
+         
+            <tr class="table-secondary">
+                <td>6. Lépés</td>
+                <td>
+                    "styles": [<br>
+                    "src/styles.css",<br>
+                    <code>"./node_modules/bootstrap/dist/css/bootstrap.css"</code><br>
+                    ],<br>
+                    "scripts": [<br>
+                    <code>  "./node_modules/bootstrap/dist/js/bootstrap.js"</code>,<br>
+                    <code> "./node_modules/jquery/dist/jquery.js"</code><br>
+                    ]
+                </td>
+                <td>angular.json hivatkozások beállítása</td>
+            </tr>
+                <tr class="table-primary">
+                    <td>7. Lépés</td>
+                    <td>
+                        src/index.html -> a&lt;link rel="stylesheet" href=". /node_modules/bootstrap/dist/css/bootstrap.css"&gt;, &lt;script
+                        &lt;head&gt; részbe
+                        src="./node_modules/bootstrap/dist/js/bootstrap.js"&gt;,&lt;script src="./node_modules/jquery/dist/jquery.js"&gt;
+                    </td>
+                    <td>Importálása a különböző forrásoknak amelyeket meghívtunk</td>
+                </tr>
+
+        </tbody>
+    </table>
+</div>

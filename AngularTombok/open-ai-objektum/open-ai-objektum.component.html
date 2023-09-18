@@ -1,0 +1,28 @@
+<div class="container text-center">
+    <h2>Kiíratás Táblázatban</h2>
+
+    <table class=" table table-dark table-hover table-border">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Neve</th>
+                <th>Email</th>
+                <th>Kor</th>
+                <th>Elemek törlése</th>
+            </tr>
+
+        </thead>
+        <tbody>
+            <tr *ngFor="let adatok of users">
+                <td>{{adatok.id}} </td>
+                <td>{{adatok.name}}</td>
+                <td>{{adatok.email}}</td>
+                <td>{{adatok.age}}</td>
+                <td><button type="button" class="btn btn-primary gomb" (click)="deleteUser(adatok.id)">Elem
+                        törlése</button></td>
+            </tr>
+
+
+        </tbody>
+    </table>
+</div>

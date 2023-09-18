@@ -1,0 +1,51 @@
+<div class="container secondary">
+    <table class="table table-bordered table-hover table-dark table-stripped text-center">
+        <thead>
+            <tr>
+                <th>Évszám</th>
+                <th>Esemény</th>
+                <th>Helyszín</th>
+                <th>Következmény</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let barmi of megjelenites">
+                <td>{{barmi.evszam}}</td>
+                <td>{{barmi.esemeny}}</td>
+                <td>{{barmi.helyszin}}</td>
+                <td>{{barmi.kovetkezmeny}}</td>
+            </tr>
+        </tbody>
+
+
+    </table>
+    <div class="text-center">
+
+        <h2>Páros évszámokra végződőek megjelenítése </h2>
+        <p>A kiálogatás tétele helyett egy egyszerűbb megoldás segít a párosan végződő évszámok megjelenítésére</p>
+
+        <p>&lt;tr *ngFor=&quot;let kivalogatas of megjelenites&quot;&gt;<br>
+            &lt;ng-container *ngIf=&quot;kivalogatas.evszam % 2 === 0&quot;&gt;<br>
+
+
+            &lt;td&gt;&#123; &#123;kivalogatas.evszam&#125;&#125;&lt;td&gt;<br>
+            &lt;td&gt;&#123; &#123;kivalogatas.evszam&#125;&#125;&lt;td&gt;<br>
+            &lt;td&gt;&#123; &#123;kivalogatas.evszam&#125;&#125;&lt;td&gt;<br>
+            &lt;td&gt;&#123; &#123;kivalogatas.evszam&#125;&#125;&lt;td&gt;<br>
+            &lt;/ng-container&gt;<br>
+            &lt;/tr&gt;
+        </p>
+    </div>
+    <table class="table table-bordered table-hover table-dark table-stripped text-center">
+        <tbody>
+            <tr *ngFor="let kivalogatas of megjelenites">
+                <ng-container *ngIf="kivalogatas.evszam % 2 === 0">
+                    <td>{{kivalogatas.evszam}}</td>
+                    <td>{{kivalogatas.esemeny}}</td>
+                    <td>{{kivalogatas.helyszin}}</td>
+                    <td>{{kivalogatas.kovetkezmeny}}</td>
+                </ng-container>
+            </tr>
+        </tbody>
+    </table>
+</div>

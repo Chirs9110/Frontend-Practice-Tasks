@@ -1,0 +1,31 @@
+<div class="container text-center">
+    <h2>Objektum kiratás</h2>
+    <h2>Objektum első elem</h2>
+    <p>Név: {{Dolgozok[0].nev}}</p>
+    <p>Kora: {{Dolgozok[0].kor}}</p>
+    <p>Fizetés: {{Dolgozok[0].fizetes}} forint</p>
+    <p>Beosztas: {{Dolgozok[0].beosztas}}</p>
+
+    <h3>Objektum megjelenítése táblázatban</h3>
+    <table class="table table-sm table-dark table-hover table-striped table-bordered">
+        <thead>
+            <tr>
+
+                <th>Dolgozó Neve </th>
+                <th>Élertkor </th>
+                <th>Fizetés </th>
+                <th>Beosztás </th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let munkas of Dolgozok">
+                <td>{{munkas.nev}}</td>
+                <td>{{munkas.kor}}</td>
+                <td>{{munkas.fizetes}}</td>
+                <td>{{munkas.beosztas}}</td>
+
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,130 @@
+<div class="container">
+
+    <div class="alert alert-info">
+        <h4 class=" text-center">Lépések:</h4>
+        <ol>
+            <!-- Előző lépések -->
+            <li>Hozz létre egy táblázatot a Bootstrap osztályokkal, és adj hozzá fejléccel és tartalommal.<br><b>Fontos
+                    hogy <code> &lt;thead&gt; &lt;/thead&gt;</code>, és &lt;tbody&gt; elemek közé zárd a tartalmat, mert
+                    nem jelenik meg</b></li>
+            <li>Létrehozunk egy export interface-t a ts-ben valamilyen egyértelmű névvel - ebben az esetben snookiAdatok
+                //Helyezes;Nev;Orszag;Nyeremeny<br>
+                <code>
+                export interface snookiAdatok&#123;<br>
+                    
+                    helyezes:Number;<br>
+                    nev:String;<br>
+                    orszag:String;<br>
+                    nyeremeny:Number;<br>
+                    &#125;<br>
+          </code>
+            </li>
+            <li>Elkészítünk egy objektumfeltöltést, mivel string alapú tömböt nem lehetne táblázatban megjeleníteni csak
+                felsorolásként</li>
+        </ol>
+        <ul style="list-style-type: none;" class="text-center">
+            <li>1. lépés: Az upgradeltAdatok tömbön végigmegyünk elemenként.</li>
+            <li>2. lépés: Az aktuális elem felosztása ';' karakter alapján.</li>
+            <li>3. lépés: Az aktuális helyezés számának előkészítése a megfelelő formában.</li>
+            <li>4. lépés: Az objektum létrehozása az aktuális elem adatai alapján.</li>
+            <li>5. lépés: Az objektum hozzáadása a TombTarolo tömbhöz.</li>
+            <li>6. lépés: A TombTarolo tömb visszaadása a függvény végén.</li>
+            <li>7. lépés: A snookerInfo tömb alapján objektumok létrehozása és tárolása a megjelenitettAdatok tömbben.
+            </li>
+        </ul>
+        <ol type="I">
+            <b>
+                <li>
+                    ObjektumFeltoltes(upgradeltAdatok: string[]): snookiAdatok[] &#123;
+                </li>
+                <li>&emsp;var TombTarolo: snookiAdatok[] = [];</li>
+                <li>&emsp;for (let i: number = 0; i &lt; upgradeltAdatok.length; i++) &#123;</li>
+                <li>&emsp;&emsp;let elemDarabok: string[] = upgradeltAdatok[i].split(';');</li>
+                <li>&emsp;&emsp;&emsp;&nbsp; // 2. lépés: Az aktuális elem felosztása ';' karakter alapján</li>
+                <li>&emsp;&emsp;let helyezes: number = Number(elemDarabok[0]);</li>
+                <li>&emsp;&emsp;let helyezesSzam: string = helyezes.toString() + '.';</li>
+                <li>&emsp;&emsp;var letrehozottObjektum: snookiAdatok = &#123;</li>
+                <li>&emsp;&emsp;&emsp;&nbsp; // 4. lépés: Az objektum létrehozása az aktuális elem adatai alapján</li>
+                <li>&emsp;&emsp;&emsp;&nbsp;helyezes: Number(elemDarabok[0]),</li>
+                <li>&emsp;&emsp;&emsp;&nbsp;nev: String(elemDarabok[1]),</li>
+                <li>&emsp;&emsp;&emsp;&nbsp;orszag: String(elemDarabok[2]),</li>
+                <li>&emsp;&emsp;&emsp;&nbsp;nyeremeny: Number(elemDarabok[3]),</li>
+                <li>&emsp;&emsp;&#125;;</li>
+                <li>&emsp;&emsp;&nbsp; // 5. lépés: Az objektum hozzáadása a TombTarolo tömbhöz</li>
+                <li>&emsp;&emsp;TombTarolo.push(letrehozottObjektum);</li>
+                <li>&emsp;&#125;</li>
+                <li>&emsp;&nbsp; // 6. lépés: A TombTarolo tömb visszaadása a függvény végén</li>
+                <li>&emsp;return TombTarolo;</li>
+                <li>&#125;</li>
+
+                <li> // 7. lépés: A snookerInfo tömb alapján objektumok létrehozása és tárolása a megjelenitettAdatok
+                    tömbben</li>
+                <li>megjelenitettAdatok: snookiAdatok[] = this.ObjektumFeltoltes(this.snookerInfo);</li>
+            </b>
+        </ol>
+        <ul style="list-style-type: none;">
+            <li>4. Alkalmazd az *ngFor utasítást az adott &lt;tr&gt; elemre így: let ciklus of megjelenitettAdatok </li>
+            <li>5. Végül kulcs-érték hivatkozással a megfelelő sorokba integrád az adatokat pl: &#123;
+                &#123;ciklus.helyezes &#125; &#125;</li>
+        </ul>
+        <h3 class="text-center">Megjegyzés:</h3>
+        <p>Azért használjuk a nagy "N"-t a Number típusnak az ObjektumFeltoltes függvényben, mert a helyezes és
+            nyeremeny mezőket számokként tároljuk az objektumban. A Number függvény segítségével konvertáljuk a string
+            értékeket számokká, hogy helyesen tároljuk és összehasonlítsuk őket.
+
+            A Number függvény átalakítja a stringet számmá. Például:<br>
+            helyezes: Number(elemDarabok[0])<br>
+            Ebben az esetben az elemDarabok[0] egy string érték, amit a Number függvénnyel konvertálunk számmá. Ezután a
+            helyezes mezőben számként lesz tárolva.<br>
+
+            Ez a megközelítés segít abban, hogy helyesen rendezzük és összehasonlítsuk a számokat a későbbi rendezési
+            logikában.</p>
+
+        <div class="danger text-center">
+            <H3>Számosrrend szerinti rendezés a helyezesre</H3>
+            <p>A js kódban egy objektumnal a rendezés így nézne ki:</p>
+            <code>
+          sortMegjelenitettAdatok()  &#123;<br>
+            this.megjelenitettAdatok.sort(function(a, b)  &#123;<br>
+              return a.helyezes - b.helyezes;<br>
+              &#125;);<br>
+              &#125;
+        </code>
+            <p>Typescriptben azonban a típusosság miatt kell hogy definiáljuk a típust is</p>
+            <code>
+            sortMegjelenitettAdatok()<b>:void </b>&#123;<br>
+              this.megjelenitettAdatok.sort(function(a<b>:snookiAdatok</b>, b<b>:snookiAdatok</b>)  &#123;<br>
+                return <b>Number</b>(a.helyezes) - <b>Number</b>(b.helyezes);<br>
+                &#125;);<br>
+                &#125;
+          </code>
+        </div>
+    </div>
+    <table class="table table-warning table-hover table-stripped table-bordered  text-center">
+        <thead>
+            <tr>
+                <th>Helyezés</th>
+                <th>Név</th>
+                <th>Ország</th>
+                <th>Eredmény</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let ciklus of megjelenitettAdatok">
+                <td>{{ciklus.helyezes}}.</td>
+                <td>{{ciklus.nev}}</td>
+                <td>{{ciklus.orszag}}</td>
+                <td>{{ciklus.nyeremeny}}</td>
+
+
+            </tr>
+
+
+
+        </tbody>
+
+
+
+    </table>
+
+</div>

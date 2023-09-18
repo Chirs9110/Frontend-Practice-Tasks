@@ -1,0 +1,20 @@
+<h2 class="text-center">Prímvizsgáló feladat</h2>
+<div class="form-group ">
+    <label for="vizsgalandoSzam" style="margin-top: 20px;" class="mt-5">Vizsgált szám:</label>
+    <input type="number" class="form-control mt-5" id="vizsgalandoSzam" [(ngModel)]="vizsgaltSzam">
+
+</div>
+<div class="text-center">
+    <button class="btn btn-primary" style="margin-top: 20px;" (click)="EredmenyMentes()">Eredmény mentése</button>
+</div>
+<div class="text-center">
+
+    <p *ngIf="eredmenyMentve" class="kiirato">A következő szám: </p>
+</div>
+<ul>
+    <li *ngFor="let eredmeny of megoldasok">
+        <b>{{eredmeny}}</b>
+
+    </li>
+
+</ul>

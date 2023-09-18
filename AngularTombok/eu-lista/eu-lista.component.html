@@ -1,0 +1,46 @@
+<div class="container text-center">
+<h3>Eu lista sima kiíratásban</h3>
+<ul>
+    <li><b>Ország:</b> {{EuropaiUnio[0].orszag}}</li>
+    <li><b>Csatlakozás éve:</b> {{EuropaiUnio[0].csatlakozas}}</li>
+    <li><b>Ország:</b> {{EuropaiUnio[1].orszag}}</li>
+    <li><b>Csatlakozás éve:</b> {{EuropaiUnio[1].csatlakozas}}</li>
+    
+    <li><b>Ország:</b> {{EuropaiUnio[2].orszag}}</li>
+    <li><b>Csatlakozás éve:</b> {{EuropaiUnio[2].csatlakozas}}</li>
+    
+    <li><b>Ország:</b> {{EuropaiUnio[3].orszag}}</li>
+    <li><b>Csatlakozás éve:</b> {{EuropaiUnio[3].csatlakozas}}</li>
+    
+</ul>
+<div>
+
+    <h3>JavaScriptben<br> csatlakozas.sort((a,b)=>a.csatlakozaslocalCompare(b.csatlakozas));</h3>
+
+    <p>Az <code>this</code> kulcsszó Angularban a komponensek környezetével és a TypeScript nyelv sajátosságaival áll összefüggésben. Az <code>this</code> kulcsszó segítségével hivatkozhatunk a jelenlegi objektumra, például egy osztály vagy komponens példányára.</p>
+
+<p>A <code>this</code> kulcsszót használjuk például a komponens metódusainak és tulajdonságainak hivatkozására, az osztályszintű változók kezelésére, valamint az eseménykezelők kontextusának megőrzésére.</p>
+
+    <h3>TypeScriptben a következő módon módosul: <br>
+        ngOnInit() &#123;this.EuropaiUnio.sort((a, b) => a.csatlakozas.localeCompare(b.csatlakozas));<br>&#125;</h3>
+
+</div>
+
+
+    <h2>EuLista</h2>
+
+    <table class="table table-border table-stripped table-hover table-dark table-bordered text-center">
+        <thead>
+            <tr>
+                <td>Ország</td>
+                <td>Csatlakozás éve</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let Eu of EuropaiUnio">
+                <td>{{Eu.orszag}}</td>
+                <td>{{Eu.csatlakozas}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

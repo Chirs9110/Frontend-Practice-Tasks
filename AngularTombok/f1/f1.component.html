@@ -1,0 +1,33 @@
+<div class="container">
+    <table class="table table-bordered table-stripped table-primary table-hover text-center">
+        <thead>
+            <tr>
+                <th>Név</th>
+                <th>Összesített pontszám</th>
+                <th>Első Helyezések Száma</th>
+                <th>polePosition</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let info of megjelenitettAdatok">
+                <td>{{info.nev}}</td>
+                <td>{{info.osszpont}}</td>
+                <td>{{info.elsoHelyezesekSzama}}</td>
+                <td>{{info.polePosition}}</td>
+            </tr>
+
+        </tbody>
+
+
+
+    </table>
+
+
+
+
+
+
+
+
+
+</div>

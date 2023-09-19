@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feladat</title>
+    <style>
+        #canvas {
+            width: 100px;
+            height: 100px;
+            border: 5px groove rgb(145, 205, 145);
+            border-radius: 10px;
+        }
+
+        #cicaKep {
+            transition: opacity 2s ease;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Feladat 1</h1>
+    <h2>Karakter Számláló</h2>
+    <form>
+        <label for="karakterszam"></label>
+        <input type="text" id="mezo">
+        <p>Karakterszám: <span id="karakterSzam">0</span></p>
+    </form>
+
+    <h1>Feladat 2</h1>
+    <h2>Kirajzoló</h2>
+
+    <label for="xMezo">X koordináta</label>
+    <input type="number" id="xMezo" value="100"><br><br>
+    <label for="yMezo">Y koordináta</label>
+    <input type="number" id="yMezo" value="100"><br><br>
+    <button id="kirajzol"
+        style="width: 100%;margin:0 auto; color: rgb(41, 82, 184); font-size: 20px; cursor: pointer;">Kirajzol</button>
+    <br><br>
+    <canvas id="canvas"></canvas>
+    <h1>Feladat 3</h1>
+    <h2>Bújócska</h2>
+
+    <button id="bujocskaGomb" style=" width: 300px; margin-bottom: 5px;">Kattints rám!</button>
+    <p> <img id="cicaKep" src="macsek.jpg" alt="Elrejtőző cica" style="width: 300px; height: 400px;"></p>
+
+    <h1>Feladat 4</h1>
+    <h2>Hibaüzenetek</h2>
+
+
+    <form>
+        <div id="errorCont" style="display: none; width: 150px; height: 50px; border: 1px solid black;">
+            <p id="szoveg"></p>
+        </div> <br><br>
+        <label for="mailMezo">E-mail cím</label><br>
+        <input type="email" id="mailMezo"></input><br><br>
+        <label for="mailEllenorzo">E-mail megerősítése</label><br>
+        <input type="email" id="mailEllenorzo"></input><br><br>
+        <button type="button" id="ellenorzes">Ellenőrzés</button>
+    </form>
+    <script>
+        // 1) feladat – Aktuális szöveghossz 
+        // Készítsen egy beviteli mezőt, mellette egy egyszerű bekezdéssel, amihez rendelje a „karakterszam” 
+        // azonosítót, oldja meg, hogy a beviteli mezőben bevitt karakterek mennyiségét, interaktívan, azonnal 
+        // jelenítse meg a beviteli mező mellett, függvény segítségével.
+
+        document.querySelector('#mezo').addEventListener("input", function () {
+            document.querySelector('#karakterSzam').textContent = mezo.value.length;
+        });
+
+        // 2) feladat - Kirajzoló 
+        // Készítsen 2 beviteli mezőt x és y koordinátákkal, és egy kirajzol gombot. (A weboldal szélére) 
+        // Oldja meg hogy a beviteli mezők alapján, ha az alatta lévő kirajzol gombra kattintunk a képernyő egy 
+        // tetszőleges pontján rajzoljon ki, az input adatoknak megfelelő négyzetet. 
+        // Alapértelmezett X és Y érték is alapértelmezetten 100-100 legyen! 
+        let kirajzoloGomb = document.querySelector('#kirajzol');
+
+        kirajzoloGomb.addEventListener("click", kirajzol);
+        function kirajzol() {
+            let magassag = document.querySelector("#xMezo").value;
+            let szelesseg = document.querySelector("#yMezo").value;
+            let felulet = document.querySelector('#canvas');
+            felulet.style.width = szelesseg + 'px';
+            felulet.style.height = magassag + 'px'
+        }
+        // 3) feladat – „Bújócska” 
+        // Készíts egy gombot, illetve egy képet valahova a weboldaladra (használd a mellékelt: „hidingCat.jpg” 
+        // képet), old meg, hogy a gombra való kattintáskor, a képed elhalványodjon (5mp  alatt,  egyszerű 
+        // animációval), ha ismételten rákattintunk a gombra akkor pedig fordítva történjen ez és a kép 
+        // fokozatosan jelenjen meg... 
+
+        const gomb = document.querySelector("#bujocskaGomb");
+        const kep = document.querySelector("#cicaKep");
+        let elrejtve = false;
+
+        gomb.addEventListener("click", function () {
+            if (elrejtve) {
+                kep.style.opacity = "1";
+            } else {
+                kep.style.opacity = "0";
+            }
+            elrejtve = !elrejtve;
+        });
+        // 4) feladat - Hibaüzenetek 
+        // Készíts két beviteli mezőt, e-mail cím és e-mail megerősítése címkével, illetve egy ellenőrzés gombot. 
+        // Valamint egy dobozt az oldal tetején, ami alapnak nem látszódik, ide fogunk hibaüzeneteket írni. 
+        // Ha az ellenőrzés gombra kattintunk az alábbi esetekre figyelmeztessen az oldal tetején levő üzenő 
+        // rész (a mező háttérszíne, az üzenetnek megfelelő színű legyen). 
+        // • Nincs kitöltve egyik mező sem! 
+        // • Nincs kitöltve az e-mail mező! 
+        // • Nincs kitöltve az e-mail megerősítése mező! 
+        // • Nem megfelelő az e-mail cím formátuma! 
+        // validációs regex a következő: /^[0-9a-z\.-]+@([0-9a-z-]+\.)+[a-z]{2,4}$/i 
+        // • Illetve A két mező tartalma nem egyezik! 
+        // • Adatok rögzítése sikeres! 
+
+
+        let szoveg = document.querySelector('#szoveg');
+        let szovegTarolo = document.querySelector('#errorCont');
+        ellenorzes.addEventListener("click", ellenorzo);
+        function ellenorzo() {
+            let email = document.querySelector('#mailMezo').value;
+            let emailMegerosit = document.querySelector('#mailEllenorzo').value;
+            szovegTarolo.style.backgroundColor = 'red';
+            szovegTarolo.style.display = 'block';
+            if (email === '' && emailMegerosit === '') {
+                szoveg.textContent = 'Nincs kitöltve egyik mező sem!';
+            }
+            else if (email === '') {
+                szoveg.textContent = 'Nincs kitöltve az e-mail mező!';
+            }
+            else if (emailMegerosit === '') {
+                szoveg.textContent = 'Nincs kitöltve az e-mail megerősítése mező!';
+            }
+            else if (!email.match(/^[0-9a-z\.-]+@([0-9a-z-]+\.)+[a-z]{2,4}$/i)) {
+                szoveg.textContent = 'Nem megfelelő az e-mail cím formátuma!';
+
+            }
+            else if (email !== emailMegerosit) {
+                szoveg.textContent = 'A két mező tartalma nem egyezik!';
+            }
+            else {
+                szoveg.textContent = 'Adatok rögzítése sikeres!';
+                szovegTarolo.style.backgroundColor = 'green';
+                szoveg.style.color = 'white';
+            }
+
+        }
+
+
+    </script>
+</body>
+
+</html>
